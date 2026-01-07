@@ -1,22 +1,26 @@
 import jwt from "jsonwebtoken"
-const authMiddleware = async(req,res,next)=>{
-    const {token}=req.headers;
+const authMiddleware = async (req, res, next) => {
+    const { token } = req.headers;
     if (!token) {
-        return res.json({success:false,message:"Not Authorized Login Again"})
+        return res.json({ success: false, message: "Not Authorized Login Again" })
     }
-    try{
-        const token_decode=jwt.verify(token,process.env.JWT_SECRET);
-        
+    try {
+        if (!process.env.JWT_SECRET) {
+            console.error("JWT_SECRET is not defined in environment variables");
+            return res.json({ success: false, message: "Server Configuration Error" });
+        }
+        const token_decode = jwt.verify(token, process.env.JWT_SECRET);
+
         // Always ensure req.body exists
         if (!req.body) {
             req.body = {};
         }
-        
-        req.body.userId=token_decode.id;
+
+        req.body.userId = token_decode.id;
         next();
-    }catch(error){
+    } catch (error) {
         console.log(error);
-        res.json({success:false,message:"error "})
+        res.json({ success: false, message: "error " })
     }
 }
 

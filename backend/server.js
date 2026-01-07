@@ -9,8 +9,8 @@ import cartRouter from "./routes/cartRoute.js";
 import orderRouter from "./routes/orderRoute.js";
 
 //app config
-const app=express();
-const port=4000;
+const app = express();
+const port = process.env.PORT || 4000;
 
 
 
@@ -23,18 +23,18 @@ app.use(cors())
 connectDB();
 
 //api end point
-app.use("/api/food",foodRouter);
-app.use("/images",express.static('uploads'))
-app.use('/api/user',userRouter);
-app.use('/api/cart',cartRouter);
-app.use("/api/order",orderRouter)
+app.use("/api/food", foodRouter);
+app.use("/images", express.static('uploads'))
+app.use('/api/user', userRouter);
+app.use('/api/cart', cartRouter);
+app.use("/api/order", orderRouter)
 
 
-app.get("/",(req,res)=>{
+app.get("/", (req, res) => {
     res.send("API Working")
 })
 
-app.listen(port,()=>{
+app.listen(port, () => {
     console.log(`Server Started on http://localhost:${port}`)
 })
 
