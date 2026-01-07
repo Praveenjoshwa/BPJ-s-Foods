@@ -6,7 +6,7 @@ A full-stack food delivery application built using the MERN stack (MongoDB, Expr
 
 - **Frontend:** [Click Here](https://food-del-bpj.onrender.com)
 - **Admin Panel:** [Click Here](https://food-del-admin.onrender.com)
-- **Backend API:** [Click Here](https://food-del-backend.onrender.com)
+- **Backend API:** [Click Here](https://food-del-backend-w0zj.onrender.com)
 
 
 ## Project Structure
