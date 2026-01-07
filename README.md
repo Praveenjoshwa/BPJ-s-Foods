@@ -2,6 +2,13 @@
 
 A full-stack food delivery application built using the MERN stack (MongoDB, Express, React, Node.js). This project consists of three main components: a customer-facing frontend, an admin panel for management, and a backend server.
 
+## Live Demo
+
+- **Frontend:** [Click Here](https://food-del-frontend.onrender.com)
+- **Admin Panel:** [Click Here](https://food-del-admin.onrender.com)
+- **Backend API:** [Click Here](https://food-del-backend.onrender.com)
+
+
 ## Project Structure
 
 - **frontend/**: The customer interface where users can browse menus, add items to their cart, and place orders. Built with React and Vite.
