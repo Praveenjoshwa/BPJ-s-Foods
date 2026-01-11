@@ -14,6 +14,10 @@ import Loader from './components/Loader/Loader'
 
 const App = () => {
   const [loading, setLoading] = React.useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
+
+  const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
+  const closeSidebar = () => setIsSidebarOpen(false);
 
   React.useEffect(() => {
     // Show loading screen for 3 seconds (video duration)
@@ -32,9 +36,9 @@ const App = () => {
   return (
     <div className="app-wrapper">
       <ToastContainer />
-      <Navbar url={url} />
+      <Navbar url={url} toggleSidebar={toggleSidebar} />
       <div className="app-content">
-        <Sidebar />
+        <Sidebar isOpen={isSidebarOpen} closeSidebar={closeSidebar} />
         <Routes>
           <Route path='/' element={<Dashboard url={url} />} />
           <Route path='/add' element={<Add url={url} />} />

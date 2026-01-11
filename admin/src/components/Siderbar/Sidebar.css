@@ -8,12 +8,16 @@
     flex-direction: column;
     transition: var(--transition-base);
     flex-shrink: 0;
+    z-index: 100;
 }
 
 /* ============ Sidebar Header ============ */
 .sidebar-header {
     padding: 20px 24px;
     border-bottom: 1px solid var(--border-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .sidebar-title {
@@ -22,6 +26,17 @@
     text-transform: uppercase;
     letter-spacing: 1.5px;
     color: var(--text-muted);
+}
+
+.close-sidebar-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
 }
 
 /* ============ Navigation ============ */
@@ -81,6 +96,7 @@
 
 .sidebar-label {
     flex: 1;
+    white-space: nowrap;
 }
 
 /* ============ Footer ============ */
@@ -97,38 +113,64 @@
     color: var(--text-secondary);
 }
 
+/* ============ Mobile Overlay ============ */
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar-overlay.active {
+    opacity: 1;
+}
+
 /* ============ Responsive ============ */
 @media (max-width: 900px) {
+    .sidebar-overlay {
+        display: block;
+        pointer-events: none;
+    }
+
+    .sidebar-overlay.active {
+        pointer-events: auto;
+    }
+
     .sidebar {
-        width: var(--sidebar-collapsed);
+        position: fixed;
+        top: 0;
+        left: -280px;
+        height: 100vh;
+        width: 280px;
+        background: white;
+        box-shadow: var(--shadow-xl);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    .sidebar-header,
+    .sidebar.active {
+        transform: translateX(280px);
+    }
+
+    .close-sidebar-btn {
+        display: block;
+    }
+
     .sidebar-footer {
-        display: none;
-    }
-
-    .sidebar-nav {
-        padding: 16px 8px;
-    }
-
-    .sidebar-item {
-        justify-content: center;
-        padding: 14px;
+        display: block;
     }
 
     .sidebar-label,
     .active-indicator {
-        display: none;
+        display: block;
     }
 
-    .sidebar-icon {
-        font-size: 24px;
-    }
-}
-
-@media (max-width: 600px) {
-    .sidebar {
-        width: 60px;
+    .sidebar-item {
+        justify-content: flex-start;
     }
 }

@@ -4,7 +4,7 @@ import { assets } from '../../assets/assets'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
-const Navbar = ({ url }) => {
+const Navbar = ({ url, toggleSidebar }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [notifications, setNotifications] = useState([]);
   const [showNotifications, setShowNotifications] = useState(false);
@@ -60,6 +60,9 @@ const Navbar = ({ url }) => {
   return (
     <nav className='navbar'>
       <div className="navbar-left">
+        <button className="menu-toggle" onClick={toggleSidebar}>
+          ☰
+        </button>
         <span className="brand-name" onClick={() => navigate('/')}>Princi Maligai</span>
         <span className="brand-badge">Admin</span>
       </div>
