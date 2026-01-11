@@ -4,12 +4,13 @@ const Header = () => {
   return (
     <div className='header'>
       <div className="header-contents">
-        <h2>Order your favourite food here</h2>
-        <p>Choose from a diverse menu featuring a delectable arry of dishes crafting with the finest ingredient and culinary expertise. Our mission is to satisfy your craving and elevate your dining </p>
-        <button>View Menu</button>
+        <h2>Fresh Groceries Delivered to Your Doorstep</h2>
+        <p>Get farm-fresh vegetables, fruits, rice, and authentic Tamil Nadu groceries with same-day or next-day delivery across Chennai, Coimbatore, Madurai, Trichy, and Salem.</p>
+        <a href='#explore-menu'><button>Shop Now</button></a>
       </div>
     </div>
   )
 }
 
 export default Header
+

@@ -10,6 +10,7 @@ import menu_5 from './menu_5.png'
 import menu_6 from './menu_6.png'
 import menu_7 from './menu_7.png'
 import menu_8 from './menu_8.png'
+import menu_9 from './menu_9.png'
 
 import food_1 from './food_1.png'
 import food_2 from './food_2.png'
@@ -43,6 +44,11 @@ import food_29 from './food_29.png'
 import food_30 from './food_30.png'
 import food_31 from './food_31.png'
 import food_32 from './food_32.png'
+import food_33 from './food_33.png'
+import food_34 from './food_34.png'
+import food_35 from './food_35.png'
+import food_36 from './food_36.png'
+import food_37 from './food_37.png'
 
 import add_icon_white from './add_icon_white.png'
 import add_icon_green from './add_icon_green.png'
@@ -84,36 +90,32 @@ export const assets = {
 
 export const menu_list = [
     {
-        menu_name: "Salad",
+        menu_name: "Vegetables",
         menu_image: menu_1
     },
     {
-        menu_name: "Rolls",
+        menu_name: "Fruits",
         menu_image: menu_2
     },
     {
-        menu_name: "Deserts",
+        menu_name: "Rice & Grains",
         menu_image: menu_3
     },
     {
-        menu_name: "Sandwich",
+        menu_name: "Oil & Masala",
         menu_image: menu_4
     },
     {
-        menu_name: "Cake",
+        menu_name: "Dairy",
         menu_image: menu_5
     },
     {
-        menu_name: "Pure Veg",
+        menu_name: "Snacks",
         menu_image: menu_6
     },
     {
-        menu_name: "Pasta",
-        menu_image: menu_7
-    },
-    {
-        menu_name: "Noodles",
-        menu_image: menu_8
+        menu_name: "Household",
+        menu_image: menu_9
     }]
 
 export const food_list = [
@@ -346,5 +348,45 @@ export const food_list = [
         price: 15,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Noodles"
+    },
+    {
+        _id: "33",
+        name: "Detergent Powder",
+        image: food_33,
+        price: 250,
+        description: "Crystal Clean detergent powder for whitening and brightening clothes, effective stain remover",
+        category: "Household"
+    },
+    {
+        _id: "34",
+        name: "Liquid Detergent",
+        image: food_34,
+        price: 320,
+        description: "Ultra Fresh liquid laundry detergent for deep cleaning and fresh fragrance",
+        category: "Household"
+    },
+    {
+        _id: "35",
+        name: "Washing Soap Powder",
+        image: food_35,
+        price: 180,
+        description: "Sunburst washing soap powder for effective cleaning of all fabrics",
+        category: "Household"
+    },
+    {
+        _id: "36",
+        name: "Bath Soap Bars",
+        image: food_36,
+        price: 120,
+        description: "Pure & Co. artisan bath soap bars in assorted fragrances, gentle on skin",
+        category: "Household"
+    },
+    {
+        _id: "37",
+        name: "Hydrating Shampoo",
+        image: food_37,
+        price: 280,
+        description: "Aurora Professional hydrating shampoo, sulfate-free formula for healthy hair",
+        category: "Household"
     }
 ]

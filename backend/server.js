@@ -2,11 +2,13 @@ import express from "express"
 import cors from "cors"
 import { connectDB } from "./config/db.js";
 import foodRouter from "./routes/foodRoute.js";
+import productRouter from "./routes/productRoute.js";
 import userRouter from "./routes/userRoute.js";
 
 import 'dotenv/config.js'
 import cartRouter from "./routes/cartRoute.js";
 import orderRouter from "./routes/orderRoute.js";
+import "./config/telegramBot.js"; // Initialize Telegram Bot
 
 //app config
 const app = express();
@@ -22,8 +24,9 @@ app.use(cors())
 // db connection
 connectDB();
 
-//api end point
-app.use("/api/food", foodRouter);
+//api end points
+app.use("/api/food", foodRouter); // Keep for backwards compatibility
+app.use("/api/product", productRouter); // New product API
 app.use("/images", express.static('uploads'))
 app.use('/api/user', userRouter);
 app.use('/api/cart', cartRouter);

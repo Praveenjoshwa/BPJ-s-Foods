@@ -1,58 +1,79 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
-*{
+
+* {
     font-family: outfit;
 }
-.header{
+
+.header {
     height: 34vw;
     margin: 30px auto;
-    background: url('/header_img.png') no-repeat;
-    background-size: contain;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=2000&auto=format&fit=crop') no-repeat;
+    background-size: cover;
+    background-position: center;
     position: relative;
+    border-radius: 15px;
 }
-.header-contents{
-    position:absolute;
-    display:flex;
+
+.header-contents {
+    position: absolute;
+    display: flex;
     flex-direction: column;
     align-items: start;
-    gap:1.5vw;
+    gap: 1.5vw;
     max-width: 50%;
     bottom: 10%;
     left: 6vw;
     animation: fadeIn 3s;
 }
-.header-contents h2{
-    font-weight: 500;
+
+.header-contents h2 {
+    font-weight: 700;
     color: white;
-    font-size: max(4.5vw,22px);
+    font-size: max(4.5vw, 22px);
+    line-height: 1.2;
 }
-.header-contents p{
+
+.header-contents p {
     color: white;
-    font-size: 1vw;
+    font-size: 1.2vw;
+    line-height: 1.5;
 }
-.header-contents button{
+
+.header-contents button {
     border: none;
-    color: #747474;
-    font-weight: 500;
+    color: white;
+    font-weight: 600;
     padding: 1vw 2.3vw;
-    background-color: white;
-    font-size: max(1vw,13px);
-    border-radius:50px;
+    background: linear-gradient(135deg, #2d8f2d, #4caf50);
+    font-size: max(1vw, 13px);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
 }
+
+.header-contents button:hover {
+    transform: scale(1.05);
+}
+
 @media (max-width:1050px) {
-   
-    .header-contents{
+
+    .header-contents {
         max-width: 45%;
     }
 }
+
 @media (max-width:750px) {
-    
-    .header-contents{
-        max-width: 65%;
+
+    .header-contents {
+        max-width: 80%;
+        bottom: 15%;
     }
-    .header-contents p{
+
+    .header-contents p {
         display: none;
     }
-    .header-contents button{
+
+    .header-contents button {
         padding: 2vw 4vw;
     }
 }

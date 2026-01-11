@@ -1,27 +1,42 @@
 import React from 'react'
 import "./Sidebar.css"
-import { assets } from '../../assets/assets'
 import { NavLink } from 'react-router-dom'
 
 const Sidebar = () => {
+  const menuItems = [
+    { path: '/', icon: '📊', label: 'Dashboard' },
+    { path: '/add', icon: '➕', label: 'Add Product' },
+    { path: '/list', icon: '📦', label: 'Products' },
+    { path: '/orders', icon: '🛒', label: 'Orders' },
+  ];
+
   return (
-    <div className='sidebar'>
-      <div className="sidebar-options">
-        <NavLink to="/add"  className="sidebar-option">
-            <img src={assets.add_icon} alt="" />
-            <p>Add Items</p>
-        </NavLink >
-        <NavLink to="/list"  className="sidebar-option">
-            <img src={assets.order_icon} alt="" />
-            <p>List Items</p>
-        </NavLink >
-        <NavLink to="/orders"  className="sidebar-option">
-            <img src={assets.order_icon} alt="" />
-            <p>Orders</p>
-        </NavLink >
+    <aside className='sidebar'>
+      <div className="sidebar-header">
+        <span className="sidebar-title">Menu</span>
       </div>
-    </div>
+      <nav className="sidebar-nav">
+        {menuItems.map((item) => (
+          <NavLink
+            key={item.path}
+            to={item.path}
+            className={({ isActive }) => `sidebar-item ${isActive ? 'active' : ''}`}
+            end={item.path === '/'}
+          >
+            <span className="sidebar-icon">{item.icon}</span>
+            <span className="sidebar-label">{item.label}</span>
+            <span className="active-indicator"></span>
+          </NavLink>
+        ))}
+      </nav>
+      <div className="sidebar-footer">
+        <div className="sidebar-item">
+          <span className="sidebar-icon">⚙️</span>
+          <span className="sidebar-label">Settings</span>
+        </div>
+      </div>
+    </aside>
   )
-}   
+}
 
 export default Sidebar

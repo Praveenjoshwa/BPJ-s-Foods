@@ -1,36 +1,263 @@
-.add{
-    width: 70%;
-    margin-left: max(5vw,25px);
-    margin-top: 50px;
-    color: #6d6d6d;
-    font-size: 16px;
+/* ============ Add Product Page ============ */
+.add {
+    flex: 1;
+    padding: 32px;
+    max-width: 900px;
+    animation: fadeIn 0.3s ease;
 }
-.add form{
+
+.add>p:first-child,
+.add .page-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+}
+
+.add form {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+}
+
+/* ============ Form Sections ============ */
+.add-img-upload {
+    padding: 24px;
+    background: var(--bg-body);
+    border-radius: var(--radius-md);
+    border: 2px dashed var(--border-color);
+    text-align: center;
+    transition: var(--transition-base);
+    margin-bottom: 8px;
+}
+
+.add-img-upload:hover {
+    border-color: var(--primary-light);
+    background: rgba(99, 102, 241, 0.02);
+}
+
+.add-img-upload p {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.add-img-upload img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: var(--transition-base);
+}
+
+.add-img-upload img:hover {
+    transform: scale(1.02);
+    opacity: 0.9;
+}
+
+/* ============ Input Fields ============ */
+.add-product-name,
+.add-product-description {
+    width: 100%;
+    padding: 0;
+}
+
+.add-product-name p,
+.add-product-description p,
+.add-category p,
+.add-price p {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.add-product-name input,
+.add-product-description textarea,
+.add-category-price select,
+.add-category-price input,
+.add-price input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    color: var(--text-primary);
+    background: var(--bg-card);
+    transition: var(--transition-base);
+}
+
+.add-product-name input:focus,
+.add-product-description textarea:focus,
+.add-category-price select:focus,
+.add-category-price input:focus,
+.add-price input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.add-product-description textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* ============ Category & Price Row ============ */
+.add-category-price {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 20px;
 }
-.add-img-upload img{
-    width: 120px;
+
+.add-category,
+.add-price {
+    flex: 1;
 }
-.add-product-name, .add-product-description{
-    width: max(40%,280px);
-    padding: 10px;
+
+.add-category-price select,
+.add-category-price input {
+    max-width: none;
 }
-.add-product-name input, .add-product-description textarea{
-    padding: 10px;
-}
-.add-category-price{
+
+/* ============ Organic Checkbox ============ */
+.add-organic {
     display: flex;
-    gap: 30px;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: var(--bg-body);
+    border-radius: var(--radius-md);
+    margin-top: 8px;
 }
-.add-category-price select,.add-category-price input{
-    max-width: 120px;
-    padding: 10px;
+
+.add-organic input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--accent);
+    cursor: pointer;
 }
-.add-btn{
-    max-width: 120px;
+
+.add-organic label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+/* ============ Clear Names Button ============ */
+.input-with-button {
+    display: flex;
+    gap: 12px;
+    align-items: stretch;
+}
+
+.input-with-button input {
+    flex: 1;
+}
+
+.clear-btn {
+    padding: 14px 20px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-body);
+    color: var(--text-secondary);
+    cursor: pointer;
+    border-radius: var(--radius-md);
+    font-size: 13px;
+    font-weight: 500;
+    transition: var(--transition-base);
+    white-space: nowrap;
+}
+
+.clear-btn:hover {
+    background: var(--danger);
+    border-color: var(--danger);
+    color: white;
+}
+
+/* ============ Submit Button ============ */
+.add-btn {
+    width: 100%;
+    max-width: none;
+    padding: 16px 32px;
     border: none;
-    padding: 10px;
-    background-color: black;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
     color: white;
     cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: var(--radius-md);
+    transition: var(--transition-base);
+    margin-top: 8px;
+}
+
+.add-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.add-btn:active {
+    transform: translateY(0);
+}
+
+/* ============ Form Actions (Edit Mode) ============ */
+.form-actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 8px;
+}
+
+.form-actions .add-btn {
+    flex: 1;
+    margin-top: 0;
+}
+
+.cancel-btn {
+    padding: 16px 32px;
+    border: 2px solid var(--border-color);
+    background: var(--bg-card);
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: var(--radius-md);
+    transition: var(--transition-base);
+}
+
+.cancel-btn:hover {
+    border-color: var(--danger);
+    color: var(--danger);
+    background: rgba(239, 68, 68, 0.05);
+}
+
+.add-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.page-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+}
+
+/* ============ Responsive ============ */
+@media (max-width: 768px) {
+    .add {
+        padding: 20px;
+    }
+
+    .add form {
+        padding: 24px;
+    }
+
+    .add-category-price {
+        grid-template-columns: 1fr;
+    }
 }

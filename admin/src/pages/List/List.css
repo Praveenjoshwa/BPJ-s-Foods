@@ -1,29 +1,272 @@
-.list-table-format{
-    display: grid;
-    grid-template-columns: 0.5fr 2fr 1fr 1fr 0.5fr;
+/* ============ List Page ============ */
+.list.add {
+    flex: 1;
+    padding: 32px;
+    gap: 24px;
+    animation: fadeIn 0.3s ease;
+}
+
+.list.add>p:first-child {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+/* ============ Search & Filter Section ============ */
+.list-filters {
+    display: flex;
+    gap: 16px;
     align-items: center;
-    padding: 12px 15px;
-    gap: 10px;
-    border: 1px solid #cacaca;
-    font-size: 13px;
+    flex-wrap: wrap;
+    padding: 20px 24px;
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
 }
-.list-table-format.title{
-    background-color: #f9f9f9;
+
+.search-input {
+    flex: 1;
+    min-width: 250px;
+    padding: 14px 18px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    background: var(--bg-body);
+    transition: var(--transition-base);
 }
-.list-table-format img{
-    width: 50px;
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: var(--bg-card);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
 }
-.cursor{
+
+.category-select {
+    padding: 14px 18px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    background: var(--bg-card);
     cursor: pointer;
+    min-width: 150px;
+    transition: var(--transition-base);
 }
 
-@media (max-width:600px) {
-    .list-table-format{
-        grid-template-columns: 1fr 3fr 1fr;
-        gap: 15px;
+.category-select:focus {
+    outline: none;
+    border-color: var(--primary);
+}
 
+.results-count {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: white;
+    padding: 10px 20px;
+    border-radius: var(--radius-full);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* ============ Table Container ============ */
+.list-table {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+}
+
+/* ============ Table Row ============ */
+.list-table-format {
+    display: grid;
+    grid-template-columns: 70px 2fr 1fr 1fr 1fr 100px;
+    align-items: center;
+    padding: 16px 24px;
+    gap: 16px;
+    border-bottom: 1px solid var(--border-light);
+    font-size: 14px;
+    transition: var(--transition-fast);
+}
+
+.list-table-format:last-child {
+    border-bottom: none;
+}
+
+.list-table-format:not(.title):hover {
+    background: var(--bg-hover);
+}
+
+/* ============ Table Header ============ */
+.list-table-format.title {
+    background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-secondary);
+    padding: 14px 24px;
+}
+
+.list-table-format.title b {
+    font-weight: 600;
+}
+
+/* ============ Product Image ============ */
+.list-table-format img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-xs);
+}
+
+/* ============ Product Info ============ */
+.list-table-format>div p:first-child {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
+.tamil-name-admin {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* ============ Stock Status ============ */
+.low-stock-admin {
+    color: var(--warning);
+    font-weight: 600;
+    background: rgba(245, 158, 11, 0.1);
+    padding: 4px 10px;
+    border-radius: var(--radius-sm);
+    display: inline-block;
+}
+
+/* ============ Action Buttons ============ */
+.action-buttons-list {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.edit-btn,
+.delete-btn {
+    cursor: pointer;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 15px;
+    position: relative;
+    border: 2px solid transparent;
+}
+
+/* Edit Button - Blue Theme */
+.edit-btn {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(99, 102, 241, 0.05));
+    border-color: rgba(99, 102, 241, 0.2);
+    color: var(--primary);
+}
+
+.edit-btn:hover {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    border-color: var(--primary);
+    color: white;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.35);
+}
+
+/* Delete Button - Red Theme */
+.delete-btn {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(239, 68, 68, 0.05));
+    border-color: rgba(239, 68, 68, 0.2);
+    color: var(--danger);
+    font-weight: bold;
+}
+
+.delete-btn:hover {
+    background: linear-gradient(135deg, #ef4444, #f87171);
+    border-color: var(--danger);
+    color: white;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(239, 68, 68, 0.35);
+}
+
+/* Tooltips */
+.edit-btn::after,
+.delete-btn::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(5px);
+    background: var(--text-primary);
+    color: white;
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    font-size: 11px;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    pointer-events: none;
+}
+
+.edit-btn:hover::after,
+.delete-btn:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-5px);
+}
+
+/* ============ Responsive ============ */
+@media (max-width: 900px) {
+    .list-table-format {
+        grid-template-columns: 50px 1.5fr 1fr 1fr 80px;
     }
-    .list-table-format.title{
+
+    .list-table-format.title b:nth-child(3) {
+        display: none;
+    }
+
+    .list-table-format>p:nth-child(3) {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .list.add {
+        padding: 20px;
+    }
+
+    .list-filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-input,
+    .category-select {
+        width: 100%;
+        min-width: unset;
+    }
+
+    .results-count {
+        text-align: center;
+    }
+
+    .list-table-format {
+        grid-template-columns: 50px 1fr 80px 70px;
+        padding: 12px 16px;
+    }
+
+    .list-table-format.title {
         display: none;
     }
 }
